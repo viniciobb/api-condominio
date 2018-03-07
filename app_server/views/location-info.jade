@@ -1,0 +1,52 @@
+extends layout
+include _includes/sharedHTMLfunctions
+block content
+  .row.page-header
+    .col-lg-12
+      h1=name
+  .row
+    .col-xs-12.col-sm-6
+      p.rating
+        +outputRating(ratingAverage)
+        p=address
+        .panel.panel-primary
+          .panel-heading
+            h2.panel-title Opening hours
+          .panel-body
+            each hour in openingHours
+              p=hour    
+        .panel.panel-primary
+          .panel-heading
+            h2.panel-title Facilities
+          .panel-body
+            each facility in facilities
+              span.label.label-warning
+                span.glyphicon.glyphicon-ok=facility 
+              &nbsp;
+    .col-xs-12.col-sm-6.location-map
+      .panel.panel-primary
+        .panel-heading
+          h2.panel-title Location map
+        .panel-body
+          img.img-responsive.img-rounded(src=locationMap)
+  .row
+    .col-xs-12
+      .panel.panel-primary.review-panel
+        .panel-heading
+          a.btn.btn-default.pull-right(href='/location/review/new') Add review
+          h2.panel-title Customer reviews
+        .panel.panel-body.review-container
+          each review in reviews
+            .row
+              .review
+                .well.well-sm.review-header
+                  span.rating
+                  +outputRating(review.rating)  
+                  span.reviewAuthor=review.author
+                  small.reviewTimestamp=review.date
+                .col.xs-12
+                  p=review.text 
+  .col-lg-12
+    p.lead.text-center=resume
+    p.text-center=sendYourReview             
+        
