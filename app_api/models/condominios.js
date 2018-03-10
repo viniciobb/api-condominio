@@ -12,6 +12,25 @@ var enderecoSchema = new mongoose.Schema({
 
 });
 
+var facilitySchema = new mongoose.Schema({
+    
+    nomefacility: {type: String, required: true},
+    tipoReserva: {type: String, required: true, default: 'DIA'}, // dia ou hora
+    disponibilidadeDia: { type: String }, // S T Q Q S S D
+    disponibilidadeHora: { type: String }, // 1 2 3 4 5 6 7 8 9 10 11 12  : am pm
+    valor: {type: Number, default: 0 }
+});
+
+var condominioSchema = new mongoose.Schema({
+    
+    nome: {type: String, required: true},
+    cnpj: {type: Number, default: 0},
+    quantidadeApartamentos: {type: Number, default: 0},
+    endereco: [enderecoSchema],
+    facilities: [facilitySchema]
+
+});
+
 // var reviewSchema = new mongoose.Schema({
 //     author: String,
 //     rating: {type: Number , 'default': 0 , min: 0 , max: 5},
@@ -40,4 +59,4 @@ var enderecoSchema = new mongoose.Schema({
 //     // index 2dsphere -> mongo faz cálculos geométricos baseados em um objeto esférico->  geoJSON -> longitude/latitude 
 // });
 
-mongoose.model('Endereco', enderecoSchema);
+mongoose.model('Condominio', condominioSchema);
