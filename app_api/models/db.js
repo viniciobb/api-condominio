@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');
 var gracefulShutDown;
-var dbURI = 'mongodb://localhost:27017/loc8r';
+var dbURI = 'mongodb://localhost:27017/api-condominio';
 if(process.env.NODE_ENV == "production")
     dbURI= process.env.MONGOLAB_URI;
 var readline = require('readline');
@@ -74,5 +74,5 @@ process.once('SIGTERM',function(){
 
 });
 
-require('./locations');
+require("./condominios");
 

@@ -32,7 +32,7 @@ module.exports.homeList = function(req, res, next) {
   var reqOptions, path;
 
   requestOptions = {
-    url : apiOptions.server+"/api.loc8r.com/locations",
+    url : apiOptions.server+"/condominio/locations",
     method : "get",
     json:{},
     qs: { 
