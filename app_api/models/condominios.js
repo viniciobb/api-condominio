@@ -12,6 +12,15 @@ var enderecoSchema = new mongoose.Schema({
 
 });
 
+
+var authorSchema = new mongoose.Schema({
+    
+    firstName: {type: String, required: true},
+    LastName: {type: String},
+    ID: {type: String, required: true}
+
+});
+
 var facilitySchema = new mongoose.Schema({
     
     nomefacility: {type: String, required: true},
@@ -59,4 +68,5 @@ var condominioSchema = new mongoose.Schema({
 //     // index 2dsphere -> mongo faz cálculos geométricos baseados em um objeto esférico->  geoJSON -> longitude/latitude 
 // });
 
-mongoose.model('Condominio', condominioSchema);
+//mongoose.model('Condominio', condominioSchema);
+mongoose.model('Author', authorSchema);

@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/api-condominio.com', routesApi);
+app.use('/api-condominio', routesApi);
 app.use('/', routes);
 app.use('/location', routes);
 app.use('/others', routes);

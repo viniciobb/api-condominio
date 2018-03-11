@@ -2,7 +2,8 @@
 var express = require('express');
 var routerApi = express.Router();
 
-var ctrEnderecos = require('../controllers/endereco');
+//var ctrEnderecos = require('../controllers/endereco');
+var ctrAuthors = require('../controllers/authors');
 
 //var ctrlLocations = require('../controllers/locations');
 //var ctrlReviews = require('../controllers/reviews');
@@ -11,7 +12,9 @@ var ctrEnderecos = require('../controllers/endereco');
 
 //routerApi.get('/locations', ctrlLocations.locationsListByDistance);
 
-routerApi.get('/enderecos', ctrEnderecos.listarEnderecos);
+//routerApi.get('/enderecos', ctrEnderecos.listarEnderecos);
+
+routerApi.get('/authors', ctrAuthors.getAuthors);
 
 //http://localhost:3000/api.loc8r.com/location
 //routerApi.post('/location', ctrlLocations.locationsCreate);
