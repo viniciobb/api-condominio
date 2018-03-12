@@ -14,10 +14,11 @@ var ctrAuthors = require('../controllers/authors');
 
 //routerApi.get('/enderecos', ctrEnderecos.listarEnderecos);
 
+// localhost:3000/api-condominio/authors
 routerApi.get('/authors', ctrAuthors.getAuthors);
 
-//http://localhost:3000/api.loc8r.com/location
-//routerApi.post('/location', ctrlLocations.locationsCreate);
+//localhost:3000/api-condominio/author
+routerApi.post('/author', ctrAuthors.authorCreate);
 
 //routerApi.get('/locations/:locationId', ctrlLocations.locationsReadOne);
 //routerApi.put('/locations/:locationId', ctrlLocations.locationsUpdateOne);

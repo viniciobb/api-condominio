@@ -16,8 +16,8 @@ var enderecoSchema = new mongoose.Schema({
 var authorSchema = new mongoose.Schema({
     
     firstName: {type: String, required: true},
-    LastName: {type: String},
-    ID: {type: String, required: true}
+    lastName: {type: String},
+    id: {type: String, required: false}
 
 });
 
