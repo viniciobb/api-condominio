@@ -13,7 +13,6 @@ var sendJsonResponse = function (res, status, content){
 
 // http://localhost:3000/api.loc8r.com/locations
 module.exports.locationsCreate = function(req, res) {
-    
     modelLocation.create({
         name : req.body.name,
         address : req.body.address,
@@ -29,9 +28,7 @@ module.exports.locationsCreate = function(req, res) {
             opening : req.body.opening2,
             closing : req.body.closing2,
             closed  : req.body.closed2,
-
         }]
-
     },function(err, location){
         if(err){
             sendJsonResponse(res, 400, err);
@@ -39,8 +36,8 @@ module.exports.locationsCreate = function(req, res) {
             sendJsonResponse(res, 201, location);
         }
     });
-
 };
+
 /**
  *
  * http://localhost:3000/api.loc8r.com/coordenates?lng=-48.023911099999964&lat=-15.83813799&maxDistance=100

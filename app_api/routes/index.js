@@ -19,9 +19,11 @@ routerApi.get('/authors', ctrAuthors.getAuthors);
 
 //localhost:3000/api-condominio/author
 routerApi.post('/author', ctrAuthors.authorCreate);
+routerApi.put('/author/:authorId', ctrAuthors.authorUpdate);
 
-//routerApi.get('/locations/:locationId', ctrlLocations.locationsReadOne);
 //routerApi.put('/locations/:locationId', ctrlLocations.locationsUpdateOne);
+//routerApi.get('/locations/:locationId', ctrlLocations.locationsReadOne);
+
 //routerApi.delete('/locations/:locationId', ctrlLocations.locationsDeleteOne);
 
 /* reviews */
