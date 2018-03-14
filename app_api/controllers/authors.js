@@ -95,3 +95,38 @@ module.exports.authorUpdate = function(req, res) {
         sendJsonResponse(res,404,{'message' : 'No author id in body request.'});        
     }
 };
+
+
+module.exports.authorDeleteOne = function(req, res) {
+    
+    if(req.params && req.params.authorId){
+        console.log(req.params.authorId);
+        modelAuthor.findOne({id: req.params.authorId})
+            .exec(function (err, author){
+                if(!author){
+                    sendJsonResponse(res,404,{'message' : 'authorId not found.'});
+                    return;                         
+                }else if (err){
+                    sendJsonResponse(res,404,err);
+                    return;
+                }
+                else{
+
+                    author.remove(function(err,authorDeleted){
+                        if(err){
+                            sendJsonResponse(res,404,err);
+                            return;
+                        }else{
+                            sendJsonResponse(res,200,authorDeleted);
+                        }
+
+                    });
+                
+                }
+            
+            });
+
+    }else{
+        sendJsonResponse(res,404,{'message' : 'No author id in body request.'});        
+    }
+};
