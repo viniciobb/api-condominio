@@ -61,7 +61,6 @@ module.exports.authorCreate = function(req, res) {
 module.exports.authorUpdate = function(req, res) {
     
     if(req.params && req.params.authorId){
-        console.log(req.params.authorId);
         modelAuthor.findOne({id: req.params.authorId})
             .exec(function (err, author){
                 if(!author){
@@ -100,7 +99,6 @@ module.exports.authorUpdate = function(req, res) {
 module.exports.authorDeleteOne = function(req, res) {
     
     if(req.params && req.params.authorId){
-        console.log(req.params.authorId);
         modelAuthor.findOne({id: req.params.authorId})
             .exec(function (err, author){
                 if(!author){
