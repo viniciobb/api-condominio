@@ -60,7 +60,19 @@ module.exports.condominioCreate = function(req, res) {
         if(err){
             sendJsonResponse(res, 400, err);
         }else{
-            sendJsonResponse(res, 201, newCondominio);
+            
+            var condominio = {
+                nome : newCondominio.nome,
+                cnpj: newCondominio.cnpj,
+                quantidadeApartamentos : newCondominio.quantidadeApartamentos,
+                quantidadeBlocos: newCondominio.quantidadeBlocos,
+                quantidadeElevadores: newCondominio.quantidadeElevadores,
+                quantidadeVagas: newCondominio.quantidadeVagas,
+                id: newCondominio._id
+                
+            };
+            
+            sendJsonResponse(res, 201, condominio);
         }
     });
 
@@ -94,7 +106,19 @@ module.exports.condominioUpdate = function(req, res) {
                             sendJsonResponse(res,404,err);
                             return;
                         }else{
-                            sendJsonResponse(res,200,condominioUpdated);
+                              
+                            var condominio = {
+                                nome : condominioUpdated.nome,
+                                cnpj: condominioUpdated.cnpj,
+                                quantidadeApartamentos : condominioUpdated.quantidadeApartamentos,
+                                quantidadeBlocos: condominioUpdated.quantidadeBlocos,
+                                quantidadeElevadores: condominioUpdated.quantidadeElevadores,
+                                quantidadeVagas: condominioUpdated.quantidadeVagas,
+                                id: condominioUpdated._id
+                                
+                            };
+
+                            sendJsonResponse(res,200,condominio);
                         }
 
                     });
@@ -127,7 +151,19 @@ module.exports.condominioDeleteOne = function(req, res) {
                             sendJsonResponse(res,404,err);
                             return;
                         }else{
-                            sendJsonResponse(res,200,condominioDeleted);
+                            
+                            var condominio = {
+                                nome : condominioDeleted.nome,
+                                cnpj: condominioDeleted.cnpj,
+                                quantidadeApartamentos : condominioDeleted.quantidadeApartamentos,
+                                quantidadeBlocos: condominioDeleted.quantidadeBlocos,
+                                quantidadeElevadores: condominioDeleted.quantidadeElevadores,
+                                quantidadeVagas: condominioDeleted.quantidadeVagas,
+                                id: condominioDeleted._id
+                                
+                            };
+
+                            sendJsonResponse(res,200,condominio);
                         }
 
                     });
