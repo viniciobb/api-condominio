@@ -25,7 +25,7 @@ module.exports.getEnderecos = function(req, res, next) {
             var enderecos = [];
             results.forEach(function (result){
                 enderecos.push({
-                    nomeLogradouro : result._doc.nomeLogradouro,
+                    logradouro : result._doc.logradouro,
                     numero: result._doc.numero,
                     complemento: result._doc.complemento,
                     bairro: result._doc.bairro,
@@ -47,7 +47,7 @@ module.exports.enderecoCreate = function(req, res) {
     
     var newEndereco = new modelEndereco({ 
         
-        nomeLogradouro : req.body.nomeLogradouro,
+        logradouro : req.body.logradouro,
         numero: req.body.numero,
         complemento: req.body.complemento,
         bairro: req.body.bairro,
@@ -81,7 +81,7 @@ module.exports.enderecoUpdate = function(req, res) {
                 }
                 else{
                     
-                    endereco.nomeLogradouro =  req.body.nomeLogradouro;
+                    endereco.logradouro =  req.body.logradouro;
                     endereco.numero =  req.body.numero;
                     endereco.complemento = req.params.complemento;
                     endereco.cep = req.body.cep;

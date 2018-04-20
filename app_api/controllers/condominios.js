@@ -25,14 +25,15 @@ module.exports.getCondominios = function(req, res, next) {
             var condominios = [];
             results.forEach(function (result){
                 condominios.push({
+                    id: result._doc._id,    
                     nome : result._doc.nome,
                     cnpj: result._doc.cnpj,
                     quantidadeApartamentos : result._doc.quantidadeApartamentos,
                     quantidadeBlocos: result._doc.quantidadeBlocos,
                     quantidadeElevadores: result._doc.quantidadeElevadores,
                     quantidadeVagas: result._doc.quantidadeVagas,
-                    id: result._doc._id,
-                    
+                    enderecos: result._doc.enderecos,
+                    facilities: result._doc.facilities
                 });
             });
             sendJsonResponse(res,200,condominios);
@@ -53,7 +54,8 @@ module.exports.condominioCreate = function(req, res) {
         quantidadeBlocos: req.body.quantidadeBlocos,
         quantidadeElevadores: req.body.quantidadeElevadores,
         quantidadeVagas: req.body.quantidadeVagas,
-       
+        enderecos: req.body.enderecos,
+        facilities: req.body.facilities
     });
 
     newCondominio.save(function(err, newCondominio){
@@ -68,8 +70,9 @@ module.exports.condominioCreate = function(req, res) {
                 quantidadeBlocos: newCondominio.quantidadeBlocos,
                 quantidadeElevadores: newCondominio.quantidadeElevadores,
                 quantidadeVagas: newCondominio.quantidadeVagas,
-                id: newCondominio._id
-                
+                id: newCondominio._id,
+                enderecos: newCondominio.enderecos,
+                facilities: newCondominio.facilities
             };
             
             sendJsonResponse(res, 201, condominio);
@@ -99,7 +102,8 @@ module.exports.condominioUpdate = function(req, res) {
                     condominio.quantidadeBlocos= req.body.quantidadeBlocos;
                     condominio.quantidadeElevadores= req.body.quantidadeElevadores;
                     condominio.quantidadeVagas= req.body.quantidadeVagas;
-        
+                    condominio.enderecos= req.body.enderecos;   
+                    condominio.facilities= req.body.facilities;   
 
                     condominio.save(function(err,condominioUpdated){
                         if(err){
@@ -114,8 +118,9 @@ module.exports.condominioUpdate = function(req, res) {
                                 quantidadeBlocos: condominioUpdated.quantidadeBlocos,
                                 quantidadeElevadores: condominioUpdated.quantidadeElevadores,
                                 quantidadeVagas: condominioUpdated.quantidadeVagas,
-                                id: condominioUpdated._id
-                                
+                                id: condominioUpdated._id,
+                                enderecos: condominioUpdated.enderecos,
+                                facilities: condominioUpdated.facilities
                             };
 
                             sendJsonResponse(res,200,condominio);
@@ -159,7 +164,9 @@ module.exports.condominioDeleteOne = function(req, res) {
                                 quantidadeBlocos: condominioDeleted.quantidadeBlocos,
                                 quantidadeElevadores: condominioDeleted.quantidadeElevadores,
                                 quantidadeVagas: condominioDeleted.quantidadeVagas,
-                                id: condominioDeleted._id
+                                id: condominioDeleted._id,
+                                enderecos: condominioDeleted.enderecos,
+                                facilities: condominioDeleted.facilities
                                 
                             };
 

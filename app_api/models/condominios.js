@@ -2,12 +2,12 @@ var mongoose =require('mongoose');
 
 var enderecoSchema = new mongoose.Schema({
     
-    nomeLogradouro: {type: String, required: true},
+    logradouro: {type: String, required: true},
     numero: {type: Number, default: 0},
     complemento: String,
     bairro: {type: String, required: true},
     cep: {type: Number, required: true},
-    siglaFederacao: {type: String, required: true},
+    siglaFederacao: {type: String},
     cidade: {type: String, required: true}
 
 });
@@ -38,7 +38,7 @@ var condominioSchema = new mongoose.Schema({
     quantidadeBlocos: {type: Number, default: 0},
     quantidadeElevadores: {type: Number, default: 0},
     quantidadeVagas: {type: Number, default: 0},
-    endereco: [enderecoSchema],
+    enderecos: [enderecoSchema],
     facilities: [facilitySchema]
 
 });
